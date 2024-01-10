@@ -26,6 +26,14 @@ public class ArticleService {
         Optional<Article> article = this.articleRepository.findById(id);
         return article.get();
     }
+    public void modify( String title, String content){
+        Article m = new Article();
+        m.setTitle(title);
+        m.setContent(content);
+        m.setCreateDate(LocalDateTime.now());
+        this.articleRepository.save(m);
+    }
+
 
     public List<Article> getList() {
         return this.articleRepository.findAll();

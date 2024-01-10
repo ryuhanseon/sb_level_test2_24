@@ -1,6 +1,16 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+    <table class="table">
 <h3 th:text="${article.title}"></h3>
 <p th:text="${article.content}"></p>
 
 <a th:href="@{/article/list}">목록</a>
 
 <button TYPE="submit">게시판</button>
+        <div class="my-3">
+            <a th:href="@{|/article/modify/${article.id}|}" class="btn btn-sm btn-outline-secondary"
+               th:text="수정"></a>
+        </div>
+</table>
+</div>
+</html>

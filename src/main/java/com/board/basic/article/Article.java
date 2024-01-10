@@ -3,6 +3,9 @@ package com.board.basic.article;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 
 import java.time.LocalDateTime;
 
@@ -21,5 +24,7 @@ public class Article {
     private String content;
 
     private LocalDateTime createDate;
+
+    private LocalDateTime modifyDate;
 
 }
