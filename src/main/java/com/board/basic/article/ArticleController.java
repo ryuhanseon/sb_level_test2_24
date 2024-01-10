@@ -45,9 +45,12 @@ public class ArticleController {
         model.addAttribute("article", article);
         return "article_modify";
     }
-    @PostMapping("/modify")
-    public String modify(@RequestParam(value = "title") String title, @RequestParam(value = "content") String content){
-        this.articleService.modify(title, content);
+    @PostMapping("/modify/{id}")
+    public String modify(Article article,@PathVariable("id") Integer id, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content){
+
+        this.articleService.modify(article,title, content);
+
+
         return "redirect:/article/list";
     }
 
