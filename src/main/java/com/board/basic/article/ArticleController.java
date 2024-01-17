@@ -40,18 +40,19 @@ public class ArticleController {
         return "article_detail";
     }
     @GetMapping("/modify/{id}")
-    public String modify(Model model, @PathVariable("id") Integer id){
+    public String modify(@PathVariable("id") Integer id){
         Article article = this.articleService.getArticle(id);
-        model.addAttribute("article", article);
-        return "article_modify";
+
+        return "article_form";
     }
     @PostMapping("/modify/{id}")
-    public String modify(Article article,@PathVariable("id") Integer id, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content){
+    public String modify(Article article,@PathVariable("id") Integer id, @RequestParam(value = "title") String title,
+                         @RequestParam(value = "content") String content){
 
         this.articleService.modify(article,title, content);
 
 
-        return "redirect:/article/list";
+        return "redirect:/article/detail/{id}";
     }
 
 
